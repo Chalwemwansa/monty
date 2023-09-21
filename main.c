@@ -1,86 +1,24 @@
 #include "monty.h"
-stack_t *head = NULL;
+#include "extern.h"
+extern stack_t *stack;
 
 /**
- * main - gives entry point.
- * @argc: gives arguments count.
- * @argv: gives list of arguments.
- * Return: always returns 0
+ * main - gets a file from the commandline
+ *
+ * @argv: the arguments vector passed to the terminal
+ * @argc: the number of arguments passed to the terminal
+ * Return: 0 on success
  */
-
 int main(int argc, char *argv[])
 {
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	open_file(argv[1]);
-	free_nodes();
+	handleFile(argv[1]);
+	
+	My_func(&stack);
 	return (0);
-}
-
-/**
- * create_node - function Creates a node.
- * @n: Number to go inside the node.
- * Return: Upon sucess a pointer to the node. Otherwise NULL.
- */
-
-stack_t *create_node(int n)
-{
-	stack_t *node;
-
-	node = malloc(sizeof(stack_t));
-	if (node == NULL)
-		err(4);
-	node->next = NULL;
-	node->prev = NULL;
-	node->n = n;
-	return (node);
-}
-
-/**
- * free_nodes - function frees nodes in the stack.
- */
-
-void free_nodes(void)
-{
-	stack_t *tmp;
-
-	if (head == NULL)
-		return;
-
-	while (head != NULL)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-}
-
-
-/**
- * add_to_queue - function adds a node to the queue.
- * @new_node: gives a pointer to the new node.
- * @ln: line number of the opcode.
- */
-
-void add_to_queue(stack_t **new_node, __attribute__((unused))unsigned int ln)
-{
-	stack_t *tmp;
-
-	if (new_node == NULL || *new_node == NULL)
-		exit(EXIT_FAILURE);
-	if (head == NULL)
-	{
-		head = *new_node;
-		return;
-	}
-	tmp = head;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-
-	tmp->next = *new_node;
-	(*new_node)->prev = tmp;
-
 }

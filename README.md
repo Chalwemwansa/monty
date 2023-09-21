@@ -1,1 +1,1 @@
-Chalwe and William's 0x19. C - Stacks, Queues - LIFO, FIFO project
+stack amd queue project by William and Chalwe
