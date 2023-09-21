@@ -18,7 +18,6 @@ void handleFile(char *str)
 	size_t n = 0, i, check;
 	FILE *fd;
 	unsigned int lineNum = 1;
-	stack_t *stack;
 
 	stack = NULL;
 	fd = fopen(str, "r");

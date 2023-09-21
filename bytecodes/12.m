@@ -1,16 +1,17 @@
 	pall
 push 4
 			
-pint 5
+pint		6 
 push 7
 		  push 9
 		  	add 5
 			pall 
 		push 10
 	nop 3
+	push 7
 add 5
 pall
-	swap
+	swap 4||$
 	add 
 		
 			pall $
