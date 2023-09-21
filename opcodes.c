@@ -1,6 +1,5 @@
 #include "monty.h"
 #include "extern.h"
-extern int digit;
 
 /**
  * push - places an element on to the stack
@@ -80,7 +79,7 @@ void pint(stack_t **tail, unsigned int line)
 void pop(stack_t **tail, unsigned int line)
 {
 	stack_t *hold = *tail;
-	
+
 	if (*tail == NULL)
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line);
 

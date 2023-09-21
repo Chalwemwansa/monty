@@ -1,14 +1,12 @@
 #include "monty.h"
 #include "extern.h"
 
-int digit;
-extern stack_t *stack;
-
 /**
  * handleOpcode - handles the opcodes passed
  *
  * @str: the opcode
  * @value: the argument passed
+ * @lineNum: the line in the file
  * Return: void
  */
 int handleOpcode(char *str, char *value, unsigned int lineNum)

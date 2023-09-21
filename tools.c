@@ -1,5 +1,5 @@
 #include "monty.h"
-extern stack_t *stack;
+
 /**
  * _atoi - converts a string to an integer
  * Return: an integer
@@ -51,6 +51,7 @@ void My_func(stack_t **tail)
  * getflag - checks if _atoi should take place
  *
  * @str: parameter used
+ * @value: the digit after the opcode
  * Return: an int
  */
 int getflag(char *str, char *value)

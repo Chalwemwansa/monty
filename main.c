@@ -1,6 +1,5 @@
 #include "monty.h"
 #include "extern.h"
-extern stack_t *stack;
 
 /**
  * main - gets a file from the commandline
@@ -18,7 +17,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	handleFile(argv[1]);
-	
+
 	My_func(&stack);
 	return (0);
 }

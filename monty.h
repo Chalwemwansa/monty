@@ -36,6 +36,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern int digit;
+extern stack_t *stack;
+
 	/* opcodes */
 void push(stack_t **head, unsigned int line);
 void pall(stack_t **tail, unsigned int line);

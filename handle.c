@@ -6,8 +6,6 @@
 #include <string.h>
 #include "extern.h"
 
-stack_t *stack;
-
 /**
  * handleFile - handles the opening of a file
  *
@@ -20,8 +18,9 @@ void handleFile(char *str)
 	size_t n = 0, i, check;
 	FILE *fd;
 	unsigned int lineNum = 1;
-	stack = NULL;
+	stack_t *stack;
 
+	stack = NULL;
 	fd = fopen(str, "r");
 	if (fd == NULL)
 	{
