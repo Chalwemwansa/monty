@@ -109,5 +109,5 @@ void swap(stack_t **tail, unsigned int line)
 		((**tail).prev)->n = n;
 	}
 	else
-		fprintf(stderr, "L%u: can't swap, stack too short", line);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line);
 }
