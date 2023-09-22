@@ -27,7 +27,7 @@ int handleOpcode(char *str, char *value, unsigned int lineNum)
 	flag = getflag(str, value);
 	if (flag == 0)
 		digit = _atoi(value);
-	if (flag == 2 || (value == NULL && flag == 0))
+	if (flag == 2)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", lineNum);
 		return (2);

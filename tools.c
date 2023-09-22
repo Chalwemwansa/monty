@@ -74,8 +74,10 @@ int getflag(char *str, char *value)
 		}
 		ch++;
 	}
-	if (value == NULL)
-		return (0);
+	if (_strcmp(str, "push") != 0)
+		return (1);
+	if (value == NULL && _strcmp(str, "push") == 0)
+		return (2);
 	if (value[0] == '-' || value[0] == '+')
 		ch = 1;
 	if (ch != 1 && (value[0] < '0' || value[0] > '9'))
