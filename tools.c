@@ -57,19 +57,22 @@ void My_func(stack_t **tail)
 int getflag(char *str, char *value)
 {
 	int ch = 0;
-	char *check[6] = {"pint", "pop", "add", "swap", "nop", "pall"};
+	char *check[10] = {"pint", "pop", "add", "sub", "mul"
+			, "div", "mod", "swap", "nop", "pall"};
 
-	while (ch < 6)
+	if ((_strcmp(str, "div") == 0 || _strcmp(str, "mod") == 0) && (*stack).n == 0)
+		return (3);
+	while (ch < 10)
 	{
 		if (_strcmp(str, check[ch]) == 0)
 		{
-			if (ch > 3)
+			if (ch > 7)
 				return (1);
-			if (stack == NULL && ch < 4)
+			if (stack == NULL && ch < 8)
 				return (3);
 			if ((*stack).prev == NULL && ch > 1)
 				return (3);
-			if (ch == 2 || ch == 3)
+			if (ch >= 2 && ch <= 7)
 				return (1);
 		}
 		ch++;

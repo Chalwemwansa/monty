@@ -1,2 +1,6 @@
 push 1
-pope
+push 10
+push 2
+mod
+pall
+modi

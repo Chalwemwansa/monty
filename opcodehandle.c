@@ -12,14 +12,17 @@
 int handleOpcode(char *str, char *value, unsigned int lineNum)
 {
 	int i, flag = 0;
-	instruction_t opcodes[8] = {
-					{"push", push},
+	instruction_t opcodes[12] = {{"push", push},
 					{"pall", pall},
 					{"pint", pint},
 					{"pop", pop},
 					{"swap", swap},
 					{"add", add},
 					{"nop", nop},
+					{"sub", sub},
+					{"div", divide},
+					{"mul", mul},
+					{"mod", mod},
 					{NULL, NULL}
 	};
 	if (str == NULL)
@@ -32,7 +35,7 @@ int handleOpcode(char *str, char *value, unsigned int lineNum)
 		fprintf(stderr, "L%u: usage: push integer\n", lineNum);
 		return (2);
 	}
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 12; i++)
 	{
 		if (_strcmp(opcodes[i].opcode, str) == 0)
 		{

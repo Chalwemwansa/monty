@@ -47,6 +47,10 @@ void pop(stack_t **tail, unsigned int line);
 void swap(stack_t **tail, unsigned int line);
 void add(stack_t **tail, unsigned int line);
 void nop(stack_t **tail, unsigned int line);
+void sub(stack_t **tail, unsigned int line);
+void divide(stack_t **tail, unsigned int linen);
+void mul(stack_t **tail, unsigned int line);
+void mod(stack_t **tail, unsigned int line);
 
 	/* tools */
 int _len(char *str);
