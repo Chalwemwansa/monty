@@ -60,6 +60,7 @@ int getflag(char *str, char *value)
 	char *check[10] = {"pint", "pop", "add", "sub", "mul"
 			, "div", "mod", "swap", "nop", "pall"};
 
+	if (stack != NULL)
 	if ((_strcmp(str, "div") == 0 || _strcmp(str, "mod") == 0) && (*stack).n == 0)
 		return (3);
 	while (ch < 10)
