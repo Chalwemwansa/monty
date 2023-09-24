@@ -84,7 +84,7 @@ void rotl(stack_t **tail, unsigned int line)
 	stack_t *hold = *tail, *hold1, *hold2;
 
 	(void)line;
-	if ((**tail).prev != NULL)
+	if (*tail != NULL && (**tail).prev != NULL)
 		hold1 = (**tail).prev;
 	if (*tail != NULL && (*hold).prev != NULL)
 	{
