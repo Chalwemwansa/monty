@@ -7,6 +7,7 @@
  * @line: the line number in the file being read
  * Return: void
  */
+
 void add(stack_t **tail, unsigned int line)
 {
 	int sum;
@@ -26,12 +27,13 @@ void add(stack_t **tail, unsigned int line)
 }
 
 /**
- * nop - does not do anything
+ * nop - function does not do anything
  *
  * @tail: the tail of the linked list
  * @line: the line number in the file being read
  * Return: void
  */
+
 void nop(stack_t **tail, unsigned int line)
 {
 	(void)tail;
@@ -44,6 +46,7 @@ void nop(stack_t **tail, unsigned int line)
  * @line: the line number in the file being read
  * Return: void, does not return anything
  */
+
 void sub(stack_t **tail, unsigned int line)
 {
 	int difference;
