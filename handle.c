@@ -12,6 +12,7 @@
  * @str: the parameter being used
  * Return: void
  */
+
 void handleFile(char *str)
 {
 	char *buffer = NULL, *tocken;
