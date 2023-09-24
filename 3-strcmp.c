@@ -1,10 +1,11 @@
 #include "monty.h"
 /**
- * _strcmp - compares two strings if they are the same
+ * _strcmp - function compares two strings if they are the same
  * Return: the difference between the two after comparing
  * @s1: variable to be used in the code
  * @s2: variable to be used in the program
  */
+
 int _strcmp(char *s1, char *s2)
 {
 int i = 0, j = 0;
