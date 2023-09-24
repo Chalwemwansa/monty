@@ -1,10 +1,11 @@
 #include "monty.h"
 
 /**
- * _atoi - converts a string to an integer
+ * _atoi - function converts a string to an integer
  * Return: an integer
  * @s: the string
  */
+
 int _atoi(char *s)
 {
 int i = 0, d = 0, n = 0, len = 0, digit = 0;
