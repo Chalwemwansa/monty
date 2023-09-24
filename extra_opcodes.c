@@ -113,29 +113,30 @@ void rotl(stack_t **tail, unsigned int line)
  * @line: the line number in the file being read
  * Return: void
  */
+
 void rotr(stack_t **tail, unsigned int line)
 {
-	stack_t *hold = *tail, *hold2 = *tail;
-	int i = 0, j, temp;
+	stack_t *hold = *tail, *hold2;
 
 	(void)line;
-	while (*tail != NULL)
+	if (*tail != NULL && (*hold).prev != NULL)
 	{
-		i++;
-		if ((**tail).prev == NULL)
-			break;
-		*tail = (**tail).prev;
-	}
-	if (i > 1)
-	{
-		for (j = 0; j < (i / 2); j++)
+		while (*tail != NULL)
 		{
-			temp = (*hold2).n;
-			(*hold2).n = (**tail).n;
-			(**tail).n = temp;
-			hold2 = (*hold2).prev;
-			*tail = (**tail).next;
+			if ((**tail).prev == NULL)
+			{
+				hold2 = *tail;
+				*tail = (**tail).next;
+				(**tail).prev = NULL;
+				*tail = hold2;
+				(**tail).prev = hold;
+				(**tail).next = NULL;
+				*tail = hold;
+				(**tail).next = hold2;
+				*tail = (**tail).next;
+				break;
+			}
+			*tail = (**tail).prev;
 		}
 	}
-	*tail = hold;
 }

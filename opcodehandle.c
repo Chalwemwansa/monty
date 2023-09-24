@@ -15,7 +15,7 @@ int handleOpcode(char *str, char *value, unsigned int lineNum)
 	instruction_t opcodes[16] = {{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
 		{"sub", sub}, {"div", divide}, {"mul", mul}, {"mod", mod},
-		{"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotl},
+		{"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {"rotr", rotr},
 		{NULL, NULL}
 	};
 	if (_strcmp("stack", str) == 0)
