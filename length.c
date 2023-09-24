@@ -3,7 +3,7 @@
 /**
  * _len - function finds the length of a string
  *
- * @str: the parameter used
+ * @str: gives the parameter used
  * Return: length of a string
  */
 
