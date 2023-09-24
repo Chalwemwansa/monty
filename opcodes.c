@@ -11,26 +11,43 @@
 void push(stack_t **head, unsigned int line)
 {
 	stack_t *node = malloc(sizeof(stack_t));
-	(void)line;
+	stack_t *hold = *head;
 
+	(void)line;
 	if (node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
 	(*node).n = digit;
 	if (*head == NULL)
 	{
 		(*node).prev = NULL;
 		(*node).next = NULL;
+		*head = node;
 	}
-	else
+	else if (mode == 0 && *head != NULL)
 	{
 		(*node).prev = *head;
 		(*node).next = NULL;
+		(**head).next = node;
+		*head = node;
 	}
-	*head = node;
+	else if (mode == 1 && *head != NULL)
+	{
+		while (*head != NULL)
+		{
+			if ((**head).prev == NULL)
+			{
+				(*node).prev = NULL;
+				(*node).next = *head;
+				(**head).prev = node;
+				break;
+			}
+			*head = (**head).prev;
+		}
+		*head = hold;
+	}
 }
 
 /**

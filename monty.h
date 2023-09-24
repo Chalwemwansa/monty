@@ -38,6 +38,7 @@ typedef struct instruction_s
 
 extern int digit;
 extern stack_t *stack;
+extern int mode;
 
 	/* opcodes */
 void push(stack_t **head, unsigned int line);
@@ -51,6 +52,10 @@ void sub(stack_t **tail, unsigned int line);
 void divide(stack_t **tail, unsigned int linen);
 void mul(stack_t **tail, unsigned int line);
 void mod(stack_t **tail, unsigned int line);
+void pchar(stack_t **tail, unsigned int line);
+void pstr(stack_t **tail, unsigned int line);
+void rotl(stack_t **tail, unsigned int line);
+void rotr(stack_t **tail, unsigned int line);
 
 	/* tools */
 int _len(char *str);

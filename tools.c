@@ -48,38 +48,15 @@ void My_func(stack_t **tail)
 }
 
 /**
- * getflag - checks if _atoi should take place
- *
- * @str: parameter used
- * @value: the digit after the opcode
+ * intcheck - checks if value is an integer
+ * @str: string passed as parameter
+ * @value: the value added
  * Return: an int
  */
-int getflag(char *str, char *value)
+int intcheck(char *str, char *value)
 {
 	int ch = 0;
-	char *check[10] = {"pint", "pop", "add", "sub", "mul"
-			, "div", "mod", "swap", "nop", "pall"};
 
-	if (stack != NULL)
-	if ((_strcmp(str, "div") == 0 || _strcmp(str, "mod") == 0) && (*stack).n == 0)
-		return (3);
-	while (ch < 10)
-	{
-		if (_strcmp(str, check[ch]) == 0)
-		{
-			if (ch > 7)
-				return (1);
-			if (stack == NULL && ch < 8)
-				return (3);
-			if ((*stack).prev == NULL && ch > 1)
-				return (3);
-			if (ch >= 2 && ch <= 7)
-				return (1);
-		}
-		ch++;
-	}
-	if (_strcmp(str, "push") != 0)
-		return (1);
 	if (value == NULL && _strcmp(str, "push") == 0)
 		return (2);
 	if (value[0] == '-' || value[0] == '+')
@@ -94,4 +71,44 @@ int getflag(char *str, char *value)
 		ch++;
 	}
 	return (0);
+}
+
+/**
+ * getflag - checks if _atoi should take place
+ *
+ * @str: parameter used
+ * @value: the digit after the opcode
+ * Return: an int
+ */
+int getflag(char *str, char *value)
+{
+	int ch = 0;
+	char *check[14] = {"pint", "pchar",  "pop", "add", "sub", "mul",
+		"div", "mod", "swap", "nop", "pall", "pstr", "rotl", "rotr"};
+
+	if (stack != NULL)
+	{
+	if ((_strcmp(str, "div") == 0 || _strcmp(str, "mod") == 0) && (*stack).n == 0)
+		return (3);
+	if (_strcmp(str, "pchar") == 0 && ((*stack).n < 0 || (*stack).n > 127))
+		return (3);
+	}
+	while (ch < 14)
+	{
+		if (_strcmp(str, check[ch]) == 0)
+		{
+			if (ch > 8)
+				return (1);
+			if (stack == NULL && ch <= 8)
+				return (3);
+			if ((*stack).prev == NULL && ch > 2)
+				return (3);
+			if (ch > 2 && ch <= 8)
+				return (1);
+		}
+		ch++;
+	}
+	if (_strcmp(str, "push") != 0)
+		return (1);
+	return (intcheck(str, value));
 }

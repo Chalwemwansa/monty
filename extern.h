@@ -2,7 +2,7 @@
 #define EXTERN_H
 #include "monty.h"
 
-int digit;
+int digit, mode;
 stack_t *stack;
 
 #endif
